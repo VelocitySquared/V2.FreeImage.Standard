@@ -2035,6 +2035,25 @@ namespace FreeImageAPI
         private static extern bool JPEGTransformU(string src_file, string dst_file,
             FREE_IMAGE_JPEG_OPERATION operation, bool perfect);
 
+        /// <summary>
+        /// Performs a lossless rotation or flipping, and optional cropping, on a JPEG in memory.
+        /// </summary>
+        /// <param name="src_io">Source stream.</param>
+        /// <param name="src_handle"></param>
+        /// <param name="dst_io">Destination stream; can be the source stream; will be overwritten.</param>
+        /// <param name="dst_handle"></param>
+        /// <param name="operation">The operation to apply.</param>
+        /// <param name="left"></param>
+        /// <param name="top"></param>
+        /// <param name="right"></param>
+        /// <param name="bottom"></param>
+        /// <param name="perfect">To avoid lossy transformation, you can set the perfect parameter to true.</param>
+        /// <returns>Returns true on success, false on failure.</returns>
+        [DllImport(ExternDll.FreeImage, EntryPoint = "FreeImage_JPEGTransformFromHandle")]
+        public static extern bool JPEGTransformFromHandle(ref FreeImageIO src_io, fi_handle src_handle,
+            ref FreeImageIO dst_io, fi_handle dst_handle, FREE_IMAGE_JPEG_OPERATION operation,
+            IntPtr left, IntPtr top, IntPtr right, IntPtr bottom, bool perfect);
+
         #endregion
 
         #region Upsampling / downsampling
