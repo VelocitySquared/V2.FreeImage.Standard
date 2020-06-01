@@ -44,6 +44,7 @@ using System.IO.Compression;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
+using FreeImageAPI.IO;
 using FreeImageAPI.Metadata;
 
 namespace FreeImageAPI
@@ -4064,6 +4065,30 @@ namespace FreeImageAPI
         public static bool JPEGTransform(string source, string destination, FREE_IMAGE_JPEG_OPERATION operation, bool perfect)
         {
             return FreeImage.JPEGTransform(source, destination, operation, perfect);
+        }
+
+        /// <summary>
+        /// Performs a lossless rotation or flipping on a JPEG stream.
+        /// </summary>
+        /// <param name="source">Source file.</param>
+        /// <param name="destination">Destination file; can be the source file; will be overwritten.</param>
+        /// <param name="operation">The operation to apply.</param>
+        /// <param name="perfect">To avoid lossy transformation, you can set the perfect parameter to true.</param>
+        /// <returns>Returns true on success, false on failure.</returns>
+        public static bool JPEGTransform(Stream source, Stream destination, FREE_IMAGE_JPEG_OPERATION operation, bool perfect)
+        {
+            FreeImageIO io = FreeImageStreamIO.io;
+
+            using (fi_handle src_handle = new fi_handle(source))
+            {
+                using (fi_handle dst_handle = new fi_handle(destination))
+                {
+                    source.Position = 0;
+                    bool result = FreeImage.JPEGTransformFromHandle(ref io, src_handle, ref io, dst_handle, operation, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, perfect);
+                    destination.Position = 0;
+                    return result;
+                }
+            }
         }
 
         /// <summary>
