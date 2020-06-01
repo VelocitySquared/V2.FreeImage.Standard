@@ -3,19 +3,19 @@
   <PropertyGroup>
     <Copyright></Copyright>
     <AssemblyTitle>FreeImage.Standard</AssemblyTitle>
-    <Version>4.3.8</Version>
-    <AssemblyVersion>4.3.8.0</AssemblyVersion>
-    <FileVersion>4.3.8.0</FileVersion>
+    <Version>4.3.8.1</Version>
+    <AssemblyVersion>4.3.8.1</AssemblyVersion>
+    <FileVersion>4.3.8.1</FileVersion>
     <Authors>FreeImage contributors; matgr1; lordbenjamin</Authors>
     <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AssemblyName>FreeImage.Standard</AssemblyName>
-    <PackageId>FreeImage.Standard</PackageId>
+    <PackageId>V2.FreeImage.Standard</PackageId>
     <PackageTags>FreeImage;netcore;dotnetcore</PackageTags>
     <PackageIconUrl>http://freeimage.sourceforge.net/images/logo.jpg</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/LordBenjamin/FreeImage.Standard</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/velocitysquared/FreeImage.Standard</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/LordBenjamin/FreeImage.Standard</RepositoryUrl>
+    <RepositoryUrl>https://github.com/velocitysquared/FreeImage.Standard</RepositoryUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>
       FreeImage (http://freeimage.sourceforge.net/) wrapper targetting .NET Standard 2.0.
